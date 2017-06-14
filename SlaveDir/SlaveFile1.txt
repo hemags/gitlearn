@@ -1,4 +1,0 @@
-Hello this is slave
-Hello this is master
-Hello this is slave for test1
-Hello this is master for test1
