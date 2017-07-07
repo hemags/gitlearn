@@ -1,13 +1,17 @@
 node ('master'){
 
-	stage ('Print'){
-		a = 1
+	stage ('init'){
+		a = 2
 		if(a == 1){
-			echo "Hello Hemanth"
+			stage ('Print a = 1'){
+				echo "Hello Hemanth"
+			}
 		} else {
-			echo "Oye"
+			stage ('Print a = 2'){
+				echo "Oye"
+			}
 		}
+
 	}
-	
 
 }
