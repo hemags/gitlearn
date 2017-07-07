@@ -1,11 +1,13 @@
 node ('master'){
 
 	stage ('Print'){
-		echo "Hello Hemanth"   
+		a = 1
+		if(a == 1){
+			echo "Hello Hemanth"
+		} else {
+			echo "Oye"
+		}
 	}
-
-	stage ('Pull Git Repo Code'){
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hemags/gitlearn.git']]])
-	}
+	
 
 }
