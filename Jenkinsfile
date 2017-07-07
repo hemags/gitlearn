@@ -1,10 +1,17 @@
-def jsonSlurper = new JsonSlurper()
-def a = jsonSlurper.parseText('{"val":1}')
+
+import groovy.json.JsonSlurperClassic 
+
+@NonCPS
+def jsonParse(def json) {
+    new groovy.json.JsonSlurperClassic().parseText(json)
+}
 
 node ('master'){
+	
+	a = jsonParse('{"val":1}');
 
 	stage ('init'){
-		if(a.val == 1){
+		if(a["val"] == 1){
 			stage ('Print a = 1'){
 				echo "Hello Hemanth"
 			}
