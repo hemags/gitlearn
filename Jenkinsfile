@@ -9,6 +9,10 @@ node ('master'){
 		ls -lart'''
 	}
 
+	stage ('JIRA value'){
+		jiraSearch 'project = HC AND issuetype = "New Cluster" AND status = Open AND resolution = Unresolved AND comment ~ "approved"'
+	}
+
 	properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3']]]);
 
 }
