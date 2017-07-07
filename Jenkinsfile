@@ -1,8 +1,10 @@
+def jsonSlurper = new JsonSlurper()
+def a = jsonSlurper.parseText('{"val":1}')
+
 node ('master'){
 
 	stage ('init'){
-		a = {"val":1}
-		if(a["val"] == 1){
+		if(a.val == 1){
 			stage ('Print a = 1'){
 				echo "Hello Hemanth"
 			}
