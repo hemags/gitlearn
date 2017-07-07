@@ -1,8 +1,8 @@
 node ('master'){
 
 	stage ('init'){
-		a = 2
-		if(a == 1){
+		a = {"val":1}
+		if(a["val"] == 1){
 			stage ('Print a = 1'){
 				echo "Hello Hemanth"
 			}
