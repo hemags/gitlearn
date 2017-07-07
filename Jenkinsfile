@@ -1,7 +1,7 @@
 node ('master'){
 
 	stage ('Print'){
-		echo "Hello Hemy"   
+		echo "Hello Hem"   
 	}
 
 	stage ('Pull Git Repo Code'){
