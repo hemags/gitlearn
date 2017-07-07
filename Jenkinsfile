@@ -1,26 +1,12 @@
-
-import groovy.json.JsonSlurperClassic 
-
-@NonCPS
-def jsonParse(def json) {
-    new groovy.json.JsonSlurperClassic().parseText(json)
-}
-
 node ('master'){
 	
-	a = jsonParse('{"val":1}');
+	stage ('Pull Git Repo'){
+		git credentialsId: '242d8577-e4f4-4ff5-b4c0-6d65332bf8cf', url: 'https://github.com/jenkinsci/pipeline-plugin.git'		
+	}
 
-	stage ('init'){
-		if(a["val"] == 1){
-			stage ('Print a = 1'){
-				echo "Hello Hemanth"
-			}
-		} else {
-			stage ('Print a = 2'){
-				echo "Oye"
-			}
-		}
-
+	stage ('Test'){
+		sh '''cd $WORKSPACE
+		ls -lart'''
 	}
 
 	properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3']]]);
