@@ -1,5 +1,5 @@
 node ('master'){
     stage ('Print'){
-            echo "Hello Hemanth"   
+            echo "Hello Hem"   
         }
 }
